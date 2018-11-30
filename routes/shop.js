@@ -7,7 +7,12 @@ const router = express.Router();
 
 router.get("/", (req, res, next) => {
   const products = adminData.products;
-  res.render('shop',{prods: products, pageTitle:'Shop', path:'/'});
+  res.render('shop',{prods: products,
+     pageTitle:'Shop', 
+     hasProduct: products.length>0,
+     activeShop:true,
+     cardCSS:true,
+     path:'/'});
   this.products = [];
   // console.log('shop.js:',adminData.products);
   // res.sendFile(path.join(rootDir, "views", "shop.html"));
