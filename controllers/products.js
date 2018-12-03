@@ -14,13 +14,14 @@ exports.postAddProduct =  (req, res, next) => {
     res.redirect("/");
   }
 exports.getProducts = (req, res, next) => {
-    const products = Product.fetchAll();
+   Product.fetchAll(products => {
     res.render('shop',{
-       prods: products,
-       pageTitle:'Shop', 
-       hasProduct: products.length>0,
-       activeShop:true,
-       cardCSS:true,
-       path:'/'});
+      prods: products,
+      pageTitle:'Shop', 
+      hasProduct: products.length>0,
+      activeShop:true,
+      cardCSS:true,
+      path:'/'});
+   });
   }
 
